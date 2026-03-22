@@ -1,0 +1,14 @@
+{
+  "name": "clinica-intermed",
+  "version": "0.1.0",
+  "description": "Clínica Intermed — sistema digital desenvolvido com Synkra AIOX",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Configure seu script de desenvolvimento'",
+    "build": "echo 'Configure seu script de build'",
+    "test": "echo 'Configure seus testes'",
+    "lint": "echo 'Configure seu linter'"
+  },
+  "author": "Vinicius Matos Santana <vinimsantanna@gmail.com>",
+  "license": "UNLICENSED"
+}

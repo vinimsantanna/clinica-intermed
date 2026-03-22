@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''name'''',''''''''\\)\\)\")",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(npm --version)",
+      "Bash(gh auth:*)",
+      "Bash(git config:*)",
+      "Bash(curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg)",
+      "Bash(sudo dd:*)",
+      "Bash(sudo chmod:*)",
+      "Bash(sudo tee:*)",
+      "Bash(sudo apt-get:*)",
+      "Bash(/home/vinicius/my-first-project/.gitignore:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/code-intel-pretool.cjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/precompact-session-digest.cjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/synapse-engine.cjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

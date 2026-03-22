@@ -1,0 +1,47 @@
+name: james-squad
+version: 1.0.0
+description: Squad do agente James — orquestrador global que intercede em todas as tasks de todos os squads antes de qualquer execução.
+author: Vinicius
+license: MIT
+slashPrefix: james
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+
+gateway:
+  enabled: true
+  scope: global
+  intercepts: all-squads
+  priority: NON-NEGOTIABLE
+  agent: james
+
+components:
+  tasks:
+    - james-pre-task-gate.md
+  agents:
+    - james.md
+  workflows:
+    - james-orchestration-flow.md
+  checklists:
+    - james-pre-execution-checklist.md
+  templates: []
+  tools: []
+  scripts: []
+
+config:
+  extends: override
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - gateway
+  - orchestrator
+  - global
+  - interceptor

@@ -1,0 +1,54 @@
+name: evo-web-squad
+version: 1.0.0
+description: >
+  Squad responsável por planejar, criar, implementar e otimizar ativos web com foco em
+  posicionamento, experiência e conversão. Atua desde a definição estratégica da página
+  até a publicação, integrações, mensuração de resultados e melhoria contínua.
+  Na prática, o time transforma objetivos de negócio em landing pages, sites e estruturas
+  digitais que não apenas parecem profissionais, mas funcionam como ativo comercial,
+  alinhando narrativa, design, tecnologia, SEO, performance e análise de dados.
+author: Vinicius
+license: MIT
+slashPrefix: evo-web
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  tasks:
+    - web-planning-task.md
+    - web-implementation-task.md
+    - web-optimization-task.md
+  agents:
+    - web-strategist.md
+    - web-builder.md
+  workflows:
+    - web-delivery-flow.md
+  checklists:
+    - web-launch-checklist.md
+  templates:
+    - landing-page-brief.md
+  tools: []
+  scripts:
+    - audit-performance.js
+    - check-seo.js
+
+config:
+  extends: extend
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - web
+  - landing-page
+  - seo
+  - performance
+  - conversion
+  - ux
