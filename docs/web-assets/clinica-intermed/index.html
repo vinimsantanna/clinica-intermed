@@ -1003,6 +1003,13 @@
       display: inline-block;
       vertical-align: middle;
     }
+
+    /* ChatWoot: oculto em mobile (não conflita com botão WA flutuante) */
+    @media (max-width: 767px) {
+      #chatwoot_live_chat_widget {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
