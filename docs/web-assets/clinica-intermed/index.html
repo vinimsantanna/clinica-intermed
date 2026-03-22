@@ -228,19 +228,22 @@
     ────────────────────────────────────────────── */
     @font-face {
       font-family: 'Zitter';
-      src: url('assets/fonts/Zitter-Regular.ttf') format('truetype');
+      src: url('assets/fonts/Zitter-Regular.woff2') format('woff2'),
+           url('assets/fonts/Zitter-Regular.ttf') format('truetype');
       font-weight: 400;
       font-display: swap;
     }
     @font-face {
       font-family: 'YuGothic';
-      src: url('assets/fonts/YuGothB.ttc') format('truetype');
+      src: url('assets/fonts/YuGothB.woff2') format('woff2'),
+           url('assets/fonts/YuGothB.ttc') format('truetype');
       font-weight: 700;
       font-display: swap;
     }
     @font-face {
       font-family: 'YuGothic';
-      src: url('assets/fonts/YuGothM.ttc') format('truetype');
+      src: url('assets/fonts/YuGothM.woff2') format('woff2'),
+           url('assets/fonts/YuGothM.ttc') format('truetype');
       font-weight: 500;
       font-display: swap;
     }
@@ -1211,12 +1214,15 @@
   ══════════════════════════════════════════════ -->
   <section class="hero" aria-label="Apresentação da Clínica Intermed">
     <div class="hero-bg">
-      <img
-        src="assets/photos/Dr João Eduardo Sena + Regiane Querino.JPG"
-        alt="Equipe da Clínica Intermed"
-        fetchpriority="high"
-        loading="eager"
-      />
+      <picture>
+        <source srcset="assets/photos/Dr João Eduardo Sena + Regiane Querino.webp" type="image/webp" />
+        <img
+          src="assets/photos/Dr João Eduardo Sena + Regiane Querino.JPG"
+          alt="Equipe da Clínica Intermed"
+          fetchpriority="high"
+          loading="eager"
+        />
+      </picture>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content fade-up">
@@ -1279,11 +1285,10 @@
       <h2 class="fade-up">Saúde plena. Cuidado integral.<br>Em um só lugar.</h2>
       <div class="accent-line fade-up delay-1"></div>
       <div class="clinic-photo fade-up delay-1">
-        <img
-          src="assets/photos/1F5A3362.JPG"
-          alt="Ambiente moderno da Clínica Intermed"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="assets/photos/1F5A3362.webp" type="image/webp" />
+          <img src="assets/photos/1F5A3362.JPG" alt="Ambiente moderno da Clínica Intermed" loading="lazy" />
+        </picture>
       </div>
       <p class="body-text fade-up delay-2">
         A Clínica Intermed nasceu para reunir atendimento clínico e assessoria cirúrgica em um só lugar — facilitando o acesso à saúde de qualidade com o acolhimento que você merece.
@@ -1354,11 +1359,10 @@
         </div>
       </div>
       <div class="como-photo fade-up">
-        <img
-          src="assets/photos/Dr Marcos Monteiro.jpg"
-          alt="Dr. Marcos Monteiro durante atendimento"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="assets/photos/Dr Marcos Monteiro.webp" type="image/webp" />
+          <img src="assets/photos/Dr Marcos Monteiro.jpg" alt="Dr. Marcos Monteiro durante atendimento" loading="lazy" />
+        </picture>
       </div>
       <div class="mt-8 fade-up delay-1">
         <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20começar%20meu%20planejamento%20na%20Clínica%20Intermed."
@@ -1486,12 +1490,10 @@
        SEÇÃO 6.5 — BREAK VISUAL (espelho)
   ══════════════════════════════════════════════ -->
   <section class="sec-break" aria-label="Citação da Clínica Intermed">
-    <img
-      src="assets/photos/Dra Érica (3).JPG"
-      alt=""
-      aria-hidden="true"
-      loading="lazy"
-    />
+    <picture>
+      <source srcset="assets/photos/Dra Érica (3).webp" type="image/webp" />
+      <img src="assets/photos/Dra Érica (3).JPG" alt="" aria-hidden="true" loading="lazy" />
+    </picture>
     <div class="break-overlay" aria-hidden="true"></div>
     <p class="break-quote">"Aqui, você finalmente<br>se vê do jeito que merece."</p>
   </section>
@@ -1508,7 +1510,7 @@
         <div class="membro-card fade-up delay-1">
           <div class="membro-foto-wrap">
             <div class="membro-foto">
-              <img src="assets/photos/Dr João Eduardo Sena.jpg" alt="Dr. João Eduardo Sena" loading="lazy" />
+              <picture><source srcset="assets/photos/Dr João Eduardo Sena.webp" type="image/webp" /><img src="assets/photos/Dr João Eduardo Sena.jpg" alt="Dr. João Eduardo Sena" loading="lazy" /></picture>
             </div>
           </div>
           <div class="membro-info">
@@ -1520,7 +1522,7 @@
         <div class="membro-card fade-up delay-2">
           <div class="membro-foto-wrap">
             <div class="membro-foto">
-              <img src="assets/photos/Dra Érica.JPG" alt="Dra. Érica Nascimento" loading="lazy" />
+              <picture><source srcset="assets/photos/Dra Érica.webp" type="image/webp" /><img src="assets/photos/Dra Érica.JPG" alt="Dra. Érica Nascimento" loading="lazy" /></picture>
             </div>
           </div>
           <div class="membro-info">
@@ -1532,7 +1534,7 @@
         <div class="membro-card fade-up delay-3">
           <div class="membro-foto-wrap">
             <div class="membro-foto">
-              <img src="assets/photos/Dr Marcos Monteiro (2).jpg" alt="Dr. Marcos Monteiro" loading="lazy" />
+              <picture><source srcset="assets/photos/Dr Marcos Monteiro (2).webp" type="image/webp" /><img src="assets/photos/Dr Marcos Monteiro (2).jpg" alt="Dr. Marcos Monteiro" loading="lazy" /></picture>
             </div>
           </div>
           <div class="membro-info">
@@ -1544,7 +1546,7 @@
         <div class="membro-card fade-up delay-4">
           <div class="membro-foto-wrap">
             <div class="membro-foto">
-              <img src="assets/photos/Regiane Querino.jpg" alt="Regiane Querino — Gestora e Fundadora" loading="lazy" />
+              <picture><source srcset="assets/photos/Regiane Querino.webp" type="image/webp" /><img src="assets/photos/Regiane Querino.jpg" alt="Regiane Querino — Gestora e Fundadora" loading="lazy" /></picture>
             </div>
           </div>
           <div class="membro-info">
@@ -1579,16 +1581,16 @@
       <div class="gallery-wrap fade-up delay-2">
         <div class="gallery-track" id="gallery-track" role="list">
           <div class="gallery-slide" role="listitem">
-            <img src="assets/photos/Dr João Eduardo Sena + Regiane Querino (2).JPG" alt="Equipe Clínica Intermed" loading="lazy" />
+            <picture><source srcset="assets/photos/Dr João Eduardo Sena + Regiane Querino (2).webp" type="image/webp" /><img src="assets/photos/Dr João Eduardo Sena + Regiane Querino (2).JPG" alt="Equipe Clínica Intermed" loading="lazy" /></picture>
           </div>
           <div class="gallery-slide" role="listitem">
-            <img src="assets/photos/Dra Érica + Regiane Querino.JPG" alt="Atendimento Clínica Intermed" loading="lazy" />
+            <picture><source srcset="assets/photos/Dra Érica + Regiane Querino.webp" type="image/webp" /><img src="assets/photos/Dra Érica + Regiane Querino.JPG" alt="Atendimento Clínica Intermed" loading="lazy" /></picture>
           </div>
           <div class="gallery-slide" role="listitem">
-            <img src="assets/photos/Dr João Eduardo Sena (2).jpg" alt="Dr. João Eduardo Sena" loading="lazy" />
+            <picture><source srcset="assets/photos/Dr João Eduardo Sena (2).webp" type="image/webp" /><img src="assets/photos/Dr João Eduardo Sena (2).jpg" alt="Dr. João Eduardo Sena" loading="lazy" /></picture>
           </div>
           <div class="gallery-slide" role="listitem">
-            <img src="assets/photos/Dra Érica (2).JPG" alt="Dra. Érica Nascimento" loading="lazy" />
+            <picture><source srcset="assets/photos/Dra Érica (2).webp" type="image/webp" /><img src="assets/photos/Dra Érica (2).JPG" alt="Dra. Érica Nascimento" loading="lazy" /></picture>
           </div>
         </div>
         <div class="gallery-dots" id="gallery-dots" role="tablist" aria-label="Navegação da galeria">
