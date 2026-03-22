@@ -2,6 +2,14 @@
   "buildCommand": null,
   "outputDirectory": "docs/web-assets/clinica-intermed",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.intermeditabuna.com.br" }],
+      "destination": "https://intermeditabuna.com.br/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/fonts/(.*)",
