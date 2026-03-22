@@ -19,6 +19,19 @@ out/
 .aiox/handoffs/
 .aiox/environment-report.yaml
 
+# AIOX framework (dependência local, não vai para o repo)
+.aiox-core/
+
+# IDE / AI tools (configs locais)
+.antigravity/
+.codex/
+.cursor/
+.gemini/
+.claude/settings.local.json
+
+# Backups gerados automaticamente
+*.backup.*
+
 # Logs
 *.log
 npm-debug.log*
