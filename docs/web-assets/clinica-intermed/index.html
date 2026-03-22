@@ -1158,7 +1158,7 @@
     }
 
     @media (min-width: 768px) {
-      .float-wa { width: 68px; height: 68px; bottom: 110px; right: 36px; }
+      .float-wa { width: 68px; height: 68px; bottom: 36px; right: 36px; }
     }
 
     /* ──────────────────────────────────────────────
@@ -1173,12 +1173,6 @@
       vertical-align: middle;
     }
 
-    /* ChatWoot: oculto em mobile (não conflita com botão WA flutuante) */
-    @media (max-width: 767px) {
-      #chatwoot_live_chat_widget {
-        display: none !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -1946,26 +1940,6 @@
     }
   </script>
 
-  <!-- ═══════════════════════════════════════════
-       CHATWOOT — Widget de atendimento
-       Instância: https://app.evosolutionshub.com.br
-       Token: bGd4WmNuCjmP8Y1Ee3tz8mar
-  ════════════════════════════════════════════ -->
-  <script>
-  (function(d,t) {
-    var BASE_URL="https://app.evosolutionshub.com.br";
-    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=BASE_URL+"/packs/js/sdk.js";
-    g.async = true;
-    s.parentNode.insertBefore(g,s);
-    g.onload=function(){
-      window.chatwootSDK.run({
-        websiteToken: 'bGd4WmNuCjmP8Y1Ee3tz8mar',
-        baseUrl: BASE_URL
-      })
-    }
-  })(document,"script");
-  </script>
 
 </body>
 </html>
