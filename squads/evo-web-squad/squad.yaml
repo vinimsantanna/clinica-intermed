@@ -1,5 +1,5 @@
 name: evo-web-squad
-version: 1.0.0
+version: 1.1.0
 description: >
   Squad responsável por planejar, criar, implementar e otimizar ativos web com foco em
   posicionamento, experiência e conversão. Atua desde a definição estratégica da página
@@ -23,6 +23,15 @@ components:
   agents:
     - web-strategist.md
     - web-builder.md
+    - estrategista-pm.md
+    - copywriter.md
+    - ux-ui-designer.md
+    - web-designer.md
+    - integrations-dev.md
+    - qa-web.md
+    - seo-specialist.md
+    - analytics-cro.md
+    - storyteller.md
   workflows:
     - web-delivery-flow.md
   checklists:
@@ -52,3 +61,7 @@ tags:
   - performance
   - conversion
   - ux
+  - copywriting
+  - analytics
+  - cro
+  - storytelling
