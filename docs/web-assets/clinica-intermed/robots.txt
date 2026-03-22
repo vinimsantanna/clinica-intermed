@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clinicaintermed.com.br/sitemap.xml
+Sitemap: https://intermeditabuna.com.br/sitemap.xml
