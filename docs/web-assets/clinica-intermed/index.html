@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clínica Intermed — Cirurgia Plástica e Estética em Itabuna-BA. Atendimento personalizado do primeiro contato ao pós-operatório. Fale com nossa equipe pelo WhatsApp." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Clínica Intermed — Estética e Saúde em Itabuna-BA" />
+  <meta property="og:description" content="A clínica onde o cuidado começa no primeiro contato e acompanha você em cada etapa da sua jornada." />
+  <meta property="og:type" content="website" />
+  <title>Clínica Intermed — Cirurgia Plástica e Estética | Itabuna-BA</title>
+
+  <style>
+    /* ──────────────────────────────────────────────
+       CUSTOM FONTS
+    ────────────────────────────────────────────── */
+    @font-face {
+      font-family: 'Zitter';
+      src: url('assets/fonts/Zitter-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'YuGothic';
+      src: url('assets/fonts/YuGothB.ttc') format('truetype');
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'YuGothic';
+      src: url('assets/fonts/YuGothM.ttc') format('truetype');
+      font-weight: 500;
+      font-display: swap;
+    }
+
+    /* ──────────────────────────────────────────────
+       DESIGN TOKENS
+    ────────────────────────────────────────────── */
+    :root {
+      --color-navy:      #3D4466;
+      --color-teal:      #17A8A2;
+      --color-charcoal:  #2D2D2D;
+      --color-mint:      #9EFBB2;
+      --color-offwhite:  #F3F3F1;
+      --color-white:     #FFFFFF;
+      --color-wa:        #25D366;
+
+      --font-display: 'Zitter', Georgia, serif;
+      --font-primary: 'YuGothic', 'Yu Gothic', sans-serif;
+
+      --radius-card: 12px;
+      --radius-pill: 999px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-wa:   0 4px 20px rgba(37,211,102,0.35);
+
+      --section-pad-mobile: 80px 24px;
+      --section-pad-desktop: 120px 80px;
+      --transition: 0.25s ease;
+    }
+
+    /* ──────────────────────────────────────────────
+       RESET & BASE
+    ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-charcoal);
+      background: var(--color-white);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ──────────────────────────────────────────────
+       TYPOGRAPHY
+    ────────────────────────────────────────────── */
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 8vw, 52px);
+      line-height: 1.15;
+      font-weight: 400;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 6vw, 40px);
+      line-height: 1.25;
+      font-weight: 400;
+    }
+    h2.serif-bold {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: clamp(22px, 5vw, 32px);
+    }
+    h3 {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: clamp(17px, 4vw, 22px);
+      line-height: 1.35;
+    }
+    p { line-height: 1.75; }
+
+    /* ──────────────────────────────────────────────
+       COMPONENTS
+    ────────────────────────────────────────────── */
+
+    /* CTA WhatsApp */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-wa);
+      color: var(--color-white);
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 17px;
+      padding: 16px 32px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-wa);
+      transition: transform var(--transition), filter var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+    }
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+    }
+    .btn-wa svg { flex-shrink: 0; }
+
+    /* CTA outline (para fundos navy) */
+    .btn-wa-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--color-white);
+      border: 2px solid rgba(255,255,255,0.7);
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 17px;
+      padding: 16px 32px;
+      border-radius: var(--radius-pill);
+      transition: all var(--transition);
+    }
+    .btn-wa-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    /* CTA invertido (para gradient) */
+    .btn-wa-inverted {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-white);
+      color: var(--color-navy);
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 18px;
+      padding: 18px 40px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-wa-inverted:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+
+    /* Teal accent line */
+    .accent-line {
+      width: 48px;
+      height: 3px;
+      background: var(--color-teal);
+      border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+
+    /* ──────────────────────────────────────────────
+       FADE-UP ANIMATION
+    ────────────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+
+    /* ──────────────────────────────────────────────
+       HEADER FIXO
+    ────────────────────────────────────────────── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 68px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    .header-logo img {
+      height: 40px;
+      width: auto;
+    }
+    .header-cta .btn-wa span.label {
+      display: none;
+    }
+    .header-cta .btn-wa {
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+    .header-cta .btn-wa svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (min-width: 768px) {
+      .site-header { padding: 0 48px; height: 76px; }
+      .header-logo img { height: 48px; }
+      .header-cta .btn-wa span.label { display: inline; }
+      .header-cta .btn-wa { padding: 14px 28px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 1 — HERO
+    ────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(61,68,102,0.92) 0%, rgba(61,68,102,0.4) 45%, transparent 75%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px 24px 56px;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-block;
+      color: var(--color-teal);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .hero-content h1 {
+      color: var(--color-white);
+      margin-bottom: 16px;
+      max-width: 540px;
+    }
+    .hero-content .hero-sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    .scroll-indicator svg { opacity: 0.5; }
+
+    @media (min-width: 768px) {
+      .hero-content { padding: 64px 80px 80px; }
+      .hero-content h1 { font-size: 56px; max-width: 640px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 2 — IDENTIFICAÇÃO
+    ────────────────────────────────────────────── */
+    .sec-identificacao {
+      padding: var(--section-pad-mobile);
+      background: var(--color-white);
+    }
+    .sec-identificacao h2 { color: var(--color-navy); margin-bottom: 4px; }
+    .sec-identificacao .perguntas {
+      margin: 8px 0 32px;
+    }
+    .sec-identificacao .perguntas p {
+      font-style: italic;
+      font-size: 18px;
+      color: var(--color-charcoal);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .sec-identificacao .perguntas p:last-child { border-bottom: none; }
+    .fechamento {
+      border-top: 2px solid var(--color-teal);
+      border-bottom: 2px solid var(--color-teal);
+      padding: 24px 0;
+      margin: 32px 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-navy);
+      line-height: 1.5;
+    }
+
+    @media (min-width: 768px) {
+      .sec-identificacao { padding: var(--section-pad-desktop); }
+      .sec-identificacao .perguntas p { font-size: 20px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 3 — A INTERMED
+    ────────────────────────────────────────────── */
+    .sec-intermed {
+      padding: var(--section-pad-mobile);
+      background: var(--color-offwhite);
+    }
+    .sec-intermed h2 { color: var(--color-navy); margin-bottom: 4px; }
+    .sec-intermed .clinic-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 32px 0;
+      aspect-ratio: 16/9;
+    }
+    .sec-intermed .clinic-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sec-intermed .body-text {
+      color: var(--color-charcoal);
+      font-size: 17px;
+      margin-bottom: 40px;
+    }
+    .cards-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .card-feature {
+      background: var(--color-white);
+      border-top: 3px solid var(--color-teal);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    .card-feature .card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(23,168,162,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-feature h3 { color: var(--color-navy); margin-bottom: 8px; font-size: 17px; }
+    .card-feature p { color: var(--color-charcoal); font-size: 15px; line-height: 1.6; }
+
+    @media (min-width: 768px) {
+      .sec-intermed { padding: var(--section-pad-desktop); }
+      .cards-3 { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 4 — COMO FUNCIONA
+    ────────────────────────────────────────────── */
+    .sec-como {
+      padding: var(--section-pad-mobile);
+      background: var(--color-navy);
+      color: var(--color-white);
+    }
+    .sec-como h2 { color: var(--color-white); margin-bottom: 4px; }
+    .sec-como .accent-line { background: var(--color-teal); }
+    .steps { margin: 40px 0; }
+    .step {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 40px;
+    }
+    .step:last-child { padding-bottom: 0; }
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 1;
+      color: var(--color-teal);
+      min-width: 56px;
+      flex-shrink: 0;
+    }
+    .step-content h3 {
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+    .step-content p {
+      color: rgba(255,255,255,0.78);
+      font-size: 15px;
+    }
+    .step-connector {
+      position: absolute;
+      left: 28px;
+      top: 68px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-teal), transparent);
+      transform: translateX(-50%);
+    }
+    .step:last-child .step-connector { display: none; }
+    .como-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 32px 0;
+      aspect-ratio: 4/3;
+    }
+    .como-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (min-width: 768px) {
+      .sec-como { padding: var(--section-pad-desktop); }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 5 — PROCEDIMENTOS
+    ────────────────────────────────────────────── */
+    .sec-procedimentos {
+      padding: var(--section-pad-mobile);
+      background: var(--color-white);
+    }
+    .sec-procedimentos h2 { color: var(--color-navy); }
+    .sec-procedimentos .sub-text {
+      color: var(--color-charcoal);
+      margin: 12px 0 40px;
+    }
+    .proc-category {
+      margin-bottom: 36px;
+    }
+    .proc-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--color-teal);
+      border-bottom: 2px solid var(--color-teal);
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+    .proc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .proc-card {
+      border: 1.5px solid rgba(23,168,162,0.25);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-navy);
+      text-align: center;
+      transition: all var(--transition);
+      cursor: default;
+    }
+    .proc-card:hover {
+      border-color: var(--color-teal);
+      background: rgba(23,168,162,0.05);
+      box-shadow: 0 4px 12px rgba(23,168,162,0.12);
+      transform: translateY(-2px);
+    }
+    .proc-cta { margin-top: 40px; }
+
+    @media (min-width: 768px) {
+      .sec-procedimentos { padding: var(--section-pad-desktop); }
+      .proc-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .proc-card { font-size: 15px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 6 — DIFERENCIAIS
+    ────────────────────────────────────────────── */
+    .sec-diferenciais {
+      padding: var(--section-pad-mobile);
+      background: var(--color-offwhite);
+    }
+    .sec-diferenciais h2 { color: var(--color-navy); }
+    .diferenciais-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .diferencial-card {
+      background: var(--color-white);
+      border-left: 4px solid var(--color-teal);
+      border-radius: var(--radius-card);
+      padding: 24px 24px 24px 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .diferencial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .diferencial-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(23,168,162,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .diferencial-card h3 { color: var(--color-navy); font-size: 17px; margin-bottom: 6px; }
+    .diferencial-card p { color: var(--color-charcoal); font-size: 15px; line-height: 1.6; }
+
+    @media (min-width: 768px) {
+      .sec-diferenciais { padding: var(--section-pad-desktop); }
+      .diferenciais-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 6.5 — BREAK VISUAL (espelho)
+    ────────────────────────────────────────────── */
+    .sec-break {
+      position: relative;
+      height: 60vh;
+      min-height: 340px;
+      overflow: hidden;
+    }
+    .sec-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .sec-break .break-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(61,68,102,0.82) 0%, rgba(61,68,102,0.2) 55%, transparent 80%);
+    }
+    .sec-break .break-quote {
+      position: absolute;
+      bottom: 40px;
+      left: 24px;
+      right: 24px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 5vw, 36px);
+      color: var(--color-white);
+      line-height: 1.3;
+    }
+
+    @media (min-width: 768px) {
+      .sec-break .break-quote { left: 80px; right: 80px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 7 — EQUIPE
+    ────────────────────────────────────────────── */
+    .sec-equipe {
+      padding: var(--section-pad-mobile);
+      background: var(--color-navy);
+      color: var(--color-white);
+    }
+    .sec-equipe h2 { color: var(--color-white); }
+    .sec-equipe .accent-line { background: var(--color-teal); }
+    .sec-equipe .equipe-sub {
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 48px;
+    }
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .membro-card {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .membro-foto-wrap {
+      flex-shrink: 0;
+    }
+    .membro-foto {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2.5px solid var(--color-teal);
+      background: rgba(255,255,255,0.1);
+    }
+    .membro-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .membro-info h3 { color: var(--color-white); font-size: 18px; margin-bottom: 4px; }
+    .membro-especialidade {
+      color: var(--color-teal);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .membro-crm {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .membro-quote {
+      color: rgba(255,255,255,0.72);
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    .equipe-cta { margin-top: 48px; }
+
+    @media (min-width: 768px) {
+      .sec-equipe { padding: var(--section-pad-desktop); }
+      .equipe-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .membro-foto { width: 120px; height: 120px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 8 — ESTRUTURA (GALERIA)
+    ────────────────────────────────────────────── */
+    .sec-estrutura {
+      padding: var(--section-pad-mobile);
+      background: var(--color-white);
+    }
+    .sec-estrutura h2 { color: var(--color-navy); }
+    .sec-estrutura .estrutura-sub {
+      color: var(--color-charcoal);
+      margin: 12px 0 36px;
+    }
+    .gallery-wrap {
+      position: relative;
+    }
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .gallery-track::-webkit-scrollbar { display: none; }
+    .gallery-slide {
+      flex: 0 0 min(80vw, 320px);
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-slide:hover img { transform: scale(1.04); }
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.18);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      padding: 0;
+    }
+    .dot.active {
+      background: var(--color-teal);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    @media (min-width: 1024px) {
+      .sec-estrutura { padding: var(--section-pad-desktop); }
+      .gallery-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+      }
+      .gallery-slide { flex: initial; width: auto; aspect-ratio: 4/3; }
+      .gallery-dots { display: none; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 9 — CTA FINAL
+    ────────────────────────────────────────────── */
+    .sec-cta-final {
+      padding: 100px 24px;
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-teal) 100%);
+      text-align: center;
+    }
+    .sec-cta-final h2 {
+      color: var(--color-white);
+      font-size: clamp(26px, 6vw, 44px);
+      margin-bottom: 20px;
+    }
+    .sec-cta-final .cta-sub {
+      color: rgba(255,255,255,0.85);
+      font-size: 17px;
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    .cta-note {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .sec-cta-final { padding: 120px 80px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 10 — FAQ
+    ────────────────────────────────────────────── */
+    .sec-faq {
+      padding: var(--section-pad-mobile);
+      background: var(--color-offwhite);
+    }
+    .sec-faq h2 { color: var(--color-navy); margin-bottom: 40px; }
+    .accordion-item {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .accordion-item:first-child { border-top: 1px solid rgba(0,0,0,0.1); }
+    .accordion-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      text-align: left;
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--color-navy);
+      transition: color var(--transition);
+    }
+    .accordion-btn:hover { color: var(--color-teal); }
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-teal);
+      transition: transform 0.3s ease;
+      margin-top: 2px;
+    }
+    .accordion-btn.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+    .accordion-body.open { grid-template-rows: 1fr; }
+    .accordion-body-inner {
+      overflow: hidden;
+    }
+    .accordion-body-inner p {
+      padding: 0 0 24px;
+      color: var(--color-charcoal);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    @media (min-width: 768px) {
+      .sec-faq { padding: var(--section-pad-desktop); }
+      .accordion-btn { font-size: 17px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       SEÇÃO 11 — FOOTER
+    ────────────────────────────────────────────── */
+    .site-footer {
+      padding: 60px 24px 32px;
+      background: var(--color-charcoal);
+      color: var(--color-white);
+    }
+    .footer-logo { margin-bottom: 28px; }
+    .footer-logo img { height: 48px; width: auto; filter: brightness(10); opacity: 0.9; }
+    .footer-tagline {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      margin-bottom: 32px;
+    }
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .footer-info a {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: color var(--transition);
+    }
+    .footer-info a:hover { color: var(--color-teal); }
+    .footer-info svg { flex-shrink: 0; margin-top: 2px; }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 28px 0;
+    }
+    .footer-legal {
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .footer-legal strong { color: rgba(255,255,255,0.55); }
+
+    @media (min-width: 768px) {
+      .site-footer { padding: 80px 80px 40px; }
+      .footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       FLOATING WHATSAPP BUTTON
+    ────────────────────────────────────────────── */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 9999;
+      width: 60px;
+      height: 60px;
+      background: var(--color-wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+    .float-wa.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+    }
+    .float-wa:hover { filter: brightness(1.08); }
+    .float-wa::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.4);
+      animation: pulse-ring 3s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(0.9); opacity: 0.8; }
+      60%  { transform: scale(1.25); opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    @media (min-width: 768px) {
+      .float-wa { width: 68px; height: 68px; bottom: 36px; right: 36px; }
+    }
+
+    /* ──────────────────────────────────────────────
+       UTILITIES
+    ────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; }
+    .text-center { text-align: center; }
+    .mt-8 { margin-top: 32px; }
+    .mt-12 { margin-top: 48px; }
+    .wa-icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER FIXO
+  ══════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a href="#" class="header-logo" aria-label="Clínica Intermed — início">
+      <img src="assets/logos/im-logo07.png" alt="Clínica Intermed" />
+    </a>
+    <div class="header-cta">
+      <a href="https://wa.me/5573991525694?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20procedimentos%20da%20Clínica%20Intermed."
+         class="btn-wa"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Falar com a Clínica Intermed pelo WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+        </svg>
+        <span class="label">Falar pelo WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 1 — HERO
+  ══════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Apresentação da Clínica Intermed">
+    <div class="hero-bg">
+      <img
+        src="assets/photos/Dr João Eduardo Sena + Regiane Querino.JPG"
+        alt="Equipe da Clínica Intermed"
+        fetchpriority="high"
+        loading="eager"
+      />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content fade-up">
+      <span class="hero-badge">Clínica Intermed · Estética e Saúde</span>
+      <h1>Pare de vestir o que cabe.<br>Comece a vestir o que deseja.</h1>
+      <p class="hero-sub">A clínica onde o cuidado começa no primeiro contato — e acompanha você em cada etapa da sua jornada.</p>
+      <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20realizar%20meu%20sonho%20com%20a%20Clínica%20Intermed!"
+         class="btn-wa"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+        </svg>
+        Quero realizar meu sonho
+      </a>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 2 — IDENTIFICAÇÃO
+  ══════════════════════════════════════════════ -->
+  <section class="sec-identificacao">
+    <div class="container">
+      <h2 class="fade-up">Você se reconhece aqui?</h2>
+      <div class="accent-line fade-up delay-1"></div>
+      <div class="perguntas fade-up delay-2">
+        <p>Você já acordou e sentiu que o espelho não mostrava quem você realmente é?</p>
+        <p>Passou anos priorizando todo mundo — menos você?</p>
+        <p>Olhou para o próprio corpo e pensou: <em>"Um dia eu cuido disso"</em>?</p>
+      </div>
+      <div class="fechamento fade-up delay-3">
+        Esse dia chegou. E você não precisa passar por isso sozinha.
+      </div>
+      <div class="fade-up delay-4">
+        <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20falar%20com%20a%20Intermed!"
+           class="btn-wa"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+          </svg>
+          Falar com a Intermed
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 3 — A INTERMED
+  ══════════════════════════════════════════════ -->
+  <section class="sec-intermed">
+    <div class="container">
+      <h2 class="fade-up">Saúde plena. Cuidado integral.<br>Em um só lugar.</h2>
+      <div class="accent-line fade-up delay-1"></div>
+      <div class="clinic-photo fade-up delay-1">
+        <img
+          src="assets/photos/1F5A3362.JPG"
+          alt="Ambiente moderno da Clínica Intermed"
+          loading="lazy"
+        />
+      </div>
+      <p class="body-text fade-up delay-2">
+        A Clínica Intermed nasceu para reunir atendimento clínico e assessoria cirúrgica em um só lugar — facilitando o acesso à saúde de qualidade com o acolhimento que você merece.
+        Do primeiro contato ao pós-operatório, cada detalhe é pensado para que você se sinta segura, acolhida e confiante.
+      </p>
+      <div class="cards-3">
+        <div class="card-feature fade-up delay-1">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Do 1º contato ao pós-op</h3>
+          <p>Acompanhamento completo em todas as etapas da sua jornada, com cuidado e atenção em cada detalhe.</p>
+        </div>
+        <div class="card-feature fade-up delay-2">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Equipe especializada</h3>
+          <p>Cirurgiões plásticos certificados e profissionais dedicados a oferecer o melhor resultado com total segurança.</p>
+        </div>
+        <div class="card-feature fade-up delay-3">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3>Ambiente para você</h3>
+          <p>Espaço moderno, confortável e humanizado — projetado para que você se sinta em paz desde a chegada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 4 — COMO FUNCIONA
+  ══════════════════════════════════════════════ -->
+  <section class="sec-como">
+    <div class="container">
+      <h2 class="fade-up">Simples. Cuidadoso. Completo.</h2>
+      <div class="accent-line fade-up delay-1"></div>
+      <div class="steps">
+        <div class="step fade-up delay-1">
+          <div class="step-number" aria-hidden="true">01</div>
+          <div class="step-content">
+            <h3>Primeiro contato</h3>
+            <p>Entre em contato pelo WhatsApp. Nossa equipe responde com agilidade e já inicia o acolhimento antes mesmo da consulta.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+        </div>
+        <div class="step fade-up delay-2">
+          <div class="step-number" aria-hidden="true">02</div>
+          <div class="step-content">
+            <h3>Planejamento personalizado</h3>
+            <p>Consulta com o especialista para entender sua necessidade, apresentar as melhores opções e criar um plano feito para você.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"></div>
+        </div>
+        <div class="step fade-up delay-3">
+          <div class="step-number" aria-hidden="true">03</div>
+          <div class="step-content">
+            <h3>Realização e acompanhamento</h3>
+            <p>Procedimento conduzido com toda a segurança e tecnologia — e acompanhamento completo durante a recuperação.</p>
+          </div>
+        </div>
+      </div>
+      <div class="como-photo fade-up">
+        <img
+          src="assets/photos/Dr Marcos Monteiro.jpg"
+          alt="Dr. Marcos Monteiro durante atendimento"
+          loading="lazy"
+        />
+      </div>
+      <div class="mt-8 fade-up delay-1">
+        <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20começar%20meu%20planejamento%20na%20Clínica%20Intermed."
+           class="btn-wa-outline"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+          </svg>
+          Começar meu planejamento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 5 — PROCEDIMENTOS
+  ══════════════════════════════════════════════ -->
+  <section class="sec-procedimentos">
+    <div class="container">
+      <h2 class="serif-bold fade-up">Especialidades realizadas<br>na Intermed</h2>
+      <p class="sub-text fade-up delay-1">Procedimentos conduzidos por especialistas certificados, com segurança, tecnologia e cuidado individualizado.</p>
+
+      <div class="proc-category fade-up delay-1">
+        <span class="proc-label">Cirurgias Plásticas</span>
+        <div class="proc-grid">
+          <div class="proc-card">Lipo HD / MD</div>
+          <div class="proc-card">Mastopexia</div>
+          <div class="proc-card">Mamoplastias</div>
+          <div class="proc-card">Abdominoplastia</div>
+          <div class="proc-card">Pós-Bariátrica</div>
+          <div class="proc-card">Otoplastia</div>
+          <div class="proc-card">Blefaroplastia</div>
+          <div class="proc-card">Gluteoplastia</div>
+          <div class="proc-card">Rinoplastia</div>
+          <div class="proc-card">Labioplastia</div>
+        </div>
+      </div>
+
+      <div class="proc-category fade-up delay-2">
+        <span class="proc-label">Estética Facial</span>
+        <div class="proc-grid">
+          <div class="proc-card">Rinomodelação</div>
+          <div class="proc-card">Blefaroplastia</div>
+          <div class="proc-card">Toxina Botulínica</div>
+          <div class="proc-card">Preench. Labial</div>
+          <div class="proc-card">Lift de Lábios</div>
+          <div class="proc-card">Bioestimuladores</div>
+        </div>
+      </div>
+
+      <div class="proc-cta fade-up delay-3">
+        <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20um%20procedimento%20da%20Clínica%20Intermed."
+           class="btn-wa"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+          </svg>
+          Tirar dúvidas sobre um procedimento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 6 — DIFERENCIAIS
+  ══════════════════════════════════════════════ -->
+  <section class="sec-diferenciais">
+    <div class="container">
+      <h2 class="fade-up">Por que a Intermed?</h2>
+      <div class="accent-line fade-up delay-1"></div>
+      <div class="diferenciais-list">
+        <div class="diferencial-card fade-up delay-1">
+          <div class="diferencial-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Tudo em um só lugar</h3>
+            <p>Atendimento clínico e cirúrgico integrados — sem precisar correr entre diferentes clínicas. Simplificamos sua jornada do início ao fim.</p>
+          </div>
+        </div>
+        <div class="diferencial-card fade-up delay-2">
+          <div class="diferencial-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Agilidade com segurança</h3>
+            <p>Processos ágeis sem abrir mão do rigor clínico. Sua saúde não espera — e nós sabemos disso.</p>
+          </div>
+        </div>
+        <div class="diferencial-card fade-up delay-1">
+          <div class="diferencial-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Planejamento personalizado</h3>
+            <p>Cada paciente é única. Seu plano de cuidado é construído de acordo com seus objetivos, seu corpo e sua história.</p>
+          </div>
+        </div>
+        <div class="diferencial-card fade-up delay-2">
+          <div class="diferencial-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17A8A2" stroke-width="2" stroke-linecap="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Acompanhamento do início ao fim</h3>
+            <p>Do primeiro contato ao pós-operatório, você não fica sozinha. Nossa equipe está disponível em cada etapa da sua jornada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 6.5 — BREAK VISUAL (espelho)
+  ══════════════════════════════════════════════ -->
+  <section class="sec-break" aria-label="Citação da Clínica Intermed">
+    <img
+      src="assets/photos/Dra Érica (3).JPG"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    />
+    <div class="break-overlay" aria-hidden="true"></div>
+    <p class="break-quote">"Aqui, você finalmente<br>se vê do jeito que merece."</p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 7 — EQUIPE
+  ══════════════════════════════════════════════ -->
+  <section class="sec-equipe">
+    <div class="container">
+      <h2 class="fade-up">Quem cuida de você</h2>
+      <div class="accent-line fade-up delay-1"></div>
+      <p class="equipe-sub fade-up delay-2">Especialistas dedicados a oferecer o melhor cuidado, com técnica, ética e atenção genuína a cada paciente.</p>
+      <div class="equipe-grid">
+        <div class="membro-card fade-up delay-1">
+          <div class="membro-foto-wrap">
+            <div class="membro-foto">
+              <img src="assets/photos/Dr João Eduardo Sena.jpg" alt="Dr. João Eduardo Sena" loading="lazy" />
+            </div>
+          </div>
+          <div class="membro-info">
+            <h3>Dr. João Eduardo Sena</h3>
+            <p class="membro-especialidade">Cirurgião Plástico</p>
+            <p class="membro-crm">CRM-SP 195228 · CRM-BA 41564<br>RQE 94739 · RQE 27942</p>
+          </div>
+        </div>
+        <div class="membro-card fade-up delay-2">
+          <div class="membro-foto-wrap">
+            <div class="membro-foto">
+              <img src="assets/photos/Dra Érica.JPG" alt="Dra. Érica Nascimento" loading="lazy" />
+            </div>
+          </div>
+          <div class="membro-info">
+            <h3>Dra. Érica Nascimento</h3>
+            <p class="membro-especialidade">Rinoplastia e Estética Facial</p>
+            <p class="membro-crm">CRM-BA 26555 · RQE 3610</p>
+          </div>
+        </div>
+        <div class="membro-card fade-up delay-3">
+          <div class="membro-foto-wrap">
+            <div class="membro-foto">
+              <img src="assets/photos/Dr Marcos Monteiro (2).jpg" alt="Dr. Marcos Monteiro" loading="lazy" />
+            </div>
+          </div>
+          <div class="membro-info">
+            <h3>Dr. Marcos Monteiro</h3>
+            <p class="membro-especialidade">Especialista em Injetáveis Faciais</p>
+            <p class="membro-crm">CRM-BA 38349</p>
+          </div>
+        </div>
+        <div class="membro-card fade-up delay-4">
+          <div class="membro-foto-wrap">
+            <div class="membro-foto">
+              <img src="assets/photos/Regiane Querino.jpg" alt="Regiane Querino — Gestora e Fundadora" loading="lazy" />
+            </div>
+          </div>
+          <div class="membro-info">
+            <h3>Regiane Querino</h3>
+            <p class="membro-especialidade">Gestora e Fundadora</p>
+            <p class="membro-quote">"O acolhimento começa no primeiro contato."</p>
+          </div>
+        </div>
+      </div>
+      <div class="equipe-cta fade-up">
+        <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20agendar%20minha%20consulta%20na%20Clínica%20Intermed."
+           class="btn-wa"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+          </svg>
+          Agendar minha consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 8 — ESTRUTURA DA CLÍNICA
+  ══════════════════════════════════════════════ -->
+  <section class="sec-estrutura">
+    <div class="container">
+      <h2 class="serif-bold fade-up">Um espaço pensado para<br>o seu bem-estar</h2>
+      <p class="estrutura-sub fade-up delay-1">Da recepção ao centro cirúrgico, cada ambiente foi projetado para oferecer conforto, privacidade e tranquilidade.</p>
+      <div class="gallery-wrap fade-up delay-2">
+        <div class="gallery-track" id="gallery-track" role="list">
+          <div class="gallery-slide" role="listitem">
+            <img src="assets/photos/Dr João Eduardo Sena + Regiane Querino (2).JPG" alt="Equipe Clínica Intermed" loading="lazy" />
+          </div>
+          <div class="gallery-slide" role="listitem">
+            <img src="assets/photos/Dra Érica + Regiane Querino.JPG" alt="Atendimento Clínica Intermed" loading="lazy" />
+          </div>
+          <div class="gallery-slide" role="listitem">
+            <img src="assets/photos/Dr João Eduardo Sena (2).jpg" alt="Dr. João Eduardo Sena" loading="lazy" />
+          </div>
+          <div class="gallery-slide" role="listitem">
+            <img src="assets/photos/Dra Érica (2).JPG" alt="Dra. Érica Nascimento" loading="lazy" />
+          </div>
+        </div>
+        <div class="gallery-dots" id="gallery-dots" role="tablist" aria-label="Navegação da galeria">
+          <button class="dot active" data-index="0" role="tab" aria-label="Foto 1" aria-selected="true"></button>
+          <button class="dot" data-index="1" role="tab" aria-label="Foto 2" aria-selected="false"></button>
+          <button class="dot" data-index="2" role="tab" aria-label="Foto 3" aria-selected="false"></button>
+          <button class="dot" data-index="3" role="tab" aria-label="Foto 4" aria-selected="false"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 9 — CTA FINAL
+  ══════════════════════════════════════════════ -->
+  <section class="sec-cta-final">
+    <div class="container fade-up">
+      <h2>Seu sonho está mais perto<br>do que você imagina.</h2>
+      <p class="cta-sub">Dê o primeiro passo hoje. Nossa equipe está pronta para te receber, ouvir sua história e construir junto com você o caminho para a transformação que você merece.</p>
+      <a href="https://wa.me/5573991525694?text=Olá!%20Quero%20falar%20com%20a%20Intermed%20e%20dar%20o%20primeiro%20passo!"
+         class="btn-wa-inverted"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#3D4466" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+        </svg>
+        Quero falar com a Intermed
+      </a>
+      <p class="cta-note">Atendimento pelo WhatsApp · Resposta rápida</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 10 — FAQ
+  ══════════════════════════════════════════════ -->
+  <section class="sec-faq">
+    <div class="container">
+      <h2 class="serif-bold fade-up">Perguntas frequentes</h2>
+      <div class="accordion fade-up delay-1">
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Preciso ter decidido o procedimento antes de agendar uma consulta?
+            <span class="accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="accordion-body" role="region">
+            <div class="accordion-body-inner">
+              <p>Não! Na Clínica Intermed, a consulta serve justamente para isso: entender seus objetivos, tirar dúvidas e, junto com o especialista, descobrir qual procedimento faz mais sentido para você. Venha como está — a gente vai junto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Como funciona o acompanhamento após o procedimento?
+            <span class="accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="accordion-body" role="region">
+            <div class="accordion-body-inner">
+              <p>Nosso acompanhamento pós-operatório é completo. Você terá retornos agendados, acesso à equipe pelo WhatsApp para dúvidas e orientações detalhadas para cada fase da recuperação. Você não fica sozinha em nenhum momento.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Quanto tempo leva para iniciar o processo depois da consulta?
+            <span class="accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="accordion-body" role="region">
+            <div class="accordion-body-inner">
+              <p>Depende do tipo de procedimento e dos exames necessários, mas prezamos pela agilidade. Na maioria dos casos, o planejamento já começa na própria consulta — e o agendamento do procedimento segue logo depois, conforme sua disponibilidade e preparo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Consigo tirar dúvidas antes de agendar uma consulta?
+            <span class="accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="accordion-body" role="region">
+            <div class="accordion-body-inner">
+              <p>Sim! Nossa equipe está disponível pelo WhatsApp para uma conversa inicial, esclarecer dúvidas gerais e te ajudar a entender qual seria o melhor próximo passo para o seu caso. Fale conosco sem compromisso.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" aria-expanded="false">
+            Vocês atendem planos de saúde?
+            <span class="accordion-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="accordion-body" role="region">
+            <div class="accordion-body-inner">
+              <p>No momento, a Clínica Intermed atende somente por conta própria (particular). Oferecemos condições de pagamento flexíveis para facilitar o acesso ao cuidado que você merece. Entre em contato para conhecer as opções disponíveis.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEÇÃO 11 — FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logos/im-logo01.png" alt="Clínica Intermed" />
+        </div>
+        <p class="footer-tagline">Clínica Intermed · Estética e Saúde</p>
+        <nav class="footer-info" aria-label="Informações de contato">
+          <a href="https://wa.me/5573991525694" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Clínica Intermed">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +55 73 9152-5694
+          </a>
+          <a href="https://www.instagram.com/clinica.intermed" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Clínica Intermed">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @clinica.intermed
+          </a>
+          <a href="https://maps.google.com/?q=Av+Comendador+Firmino+Alves+60+Itabuna+BA" target="_blank" rel="noopener noreferrer" aria-label="Endereço no Google Maps">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Av. Comendador Firmino Alves, 60<br>Ed. Módulo Center, 4º andar, Sala 401<br>Itabuna – BA
+          </a>
+        </nav>
+      </div>
+      <div>
+        <!-- Espaço para futura expansão (links, redes, etc.) -->
+      </div>
+    </div>
+    <div class="container">
+      <hr class="footer-divider" />
+      <p class="footer-legal">
+        <strong>Responsável Técnico:</strong> Dr. João Eduardo Sena · CRM-SP 195228 · CRM-BA 41564<br>
+        © 2025 Clínica Intermed. Todos os direitos reservados.<br>
+        As informações contidas neste site têm caráter informativo e não substituem a consulta médica.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+  ══════════════════════════════════════════════ -->
+  <a
+    href="https://wa.me/5573991525694?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações!"
+    class="float-wa"
+    id="float-wa"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Clínica Intermed pelo WhatsApp"
+  >
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.117 1.524 5.849L.057 23.514a.5.5 0 0 0 .61.61l5.666-1.467A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 0 1-5.003-1.364l-.358-.214-3.712.961.982-3.59-.235-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/>
+    </svg>
+  </a>
+
+  <!-- ══════════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    // ── Floating WhatsApp button (aparece após scroll)
+    const floatWa = document.getElementById('float-wa');
+    const header  = document.getElementById('site-header');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+
+      // Floating button visível após 300px
+      floatWa.classList.toggle('visible', y > 300);
+
+      // Header shadow em scroll > 80px
+      header.classList.toggle('scrolled', y > 80);
+    }, { passive: true });
+
+    // ── IntersectionObserver — fade-up animations
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ── FAQ Accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.classList.contains('open');
+        // Fecha todos
+        document.querySelectorAll('.accordion-btn').forEach(b => {
+          b.classList.remove('open');
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        // Abre o clicado (se estava fechado)
+        if (!isOpen) {
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+
+    // ── Gallery Carousel (mobile)
+    const track = document.getElementById('gallery-track');
+    const dots  = document.querySelectorAll('.dot');
+
+    if (track && dots.length) {
+      const updateDots = (index) => {
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+          d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+      };
+
+      // Click nos dots
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.dataset.index);
+          const slideWidth = track.firstElementChild.offsetWidth + 16;
+          track.scrollTo({ left: slideWidth * idx, behavior: 'smooth' });
+          updateDots(idx);
+        });
+      });
+
+      // Sync dots com scroll
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const slideWidth = track.firstElementChild.offsetWidth + 16;
+          const idx = Math.round(track.scrollLeft / slideWidth);
+          updateDots(Math.min(idx, dots.length - 1));
+        }, 80);
+      }, { passive: true });
+    }
+  </script>
+
+</body>
+</html>
