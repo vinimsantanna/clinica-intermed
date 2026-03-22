@@ -10,6 +10,54 @@
   <meta property="og:type" content="website" />
   <title>Clínica Intermed — Cirurgia Plástica e Estética | Itabuna-BA</title>
 
+  <!-- ═══════════════════════════════════════════
+       GOOGLE TAG MANAGER — head snippet
+       Container: GTM-WVL2K2X5
+  ════════════════════════════════════════════ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WVL2K2X5');</script>
+
+  <!-- ═══════════════════════════════════════════
+       META PIXEL — client-side
+       Pixel ID: 927133273559130
+       Nota: Conversions API token é server-side only (nunca expor no HTML)
+  ════════════════════════════════════════════ -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '927133273559130');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=927133273559130&ev=PageView&noscript=1"
+  /></noscript>
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE ANALYTICS 4 — via GTM (recomendado)
+       Measurement ID: G-5JW4FPJYPV
+       Configure no GTM: Tags > GA4 Configuration > G-5JW4FPJYPV
+       Fallback direto caso GTM falhe:
+  ════════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JW4FPJYPV"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5JW4FPJYPV', {
+    'page_title': 'Clínica Intermed — Landing Page',
+    'send_page_view': true
+  });
+  </script>
+
   <style>
     /* ──────────────────────────────────────────────
        CUSTOM FONTS
@@ -959,6 +1007,12 @@
 </head>
 <body>
 
+  <!-- ═══════════════════════════════════════════
+       GOOGLE TAG MANAGER — body noscript
+  ════════════════════════════════════════════ -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVL2K2X5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <!-- ══════════════════════════════════════════════
        HEADER FIXO
   ══════════════════════════════════════════════ -->
@@ -1586,6 +1640,96 @@
         }
       });
     });
+
+    // ══════════════════════════════════════════════
+    // TRACKING — WhatsApp CTA clicks
+    // Dispara: Meta Lead + GA4 generate_lead + GTM dataLayer
+    // ══════════════════════════════════════════════
+    const WA_LABEL_MAP = {
+      'Quero realizar meu sonho':        'hero_cta',
+      'Falar com a Intermed':            'identificacao_cta',
+      'Começar meu planejamento':        'como_funciona_cta',
+      'Tirar dúvidas sobre um procedimento': 'procedimentos_cta',
+      'Agendar minha consulta':          'equipe_cta',
+      'Quero falar com a Intermed':      'cta_final',
+      'header':                          'header_cta',
+      'float':                           'floating_button',
+    };
+
+    function trackWAClick(label) {
+      // ── GA4
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'whatsapp',
+          event_label: label,
+          value: 1,
+          currency: 'BRL',
+        });
+        gtag('event', 'whatsapp_click', {
+          event_category: 'engagement',
+          event_label: label,
+        });
+      }
+
+      // ── Meta Pixel
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'whatsapp_click',
+          content_category: label,
+        });
+      }
+
+      // ── GTM dataLayer (custom triggers no GTM)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'whatsapp_click',
+        wa_label: label,
+        wa_url: 'https://wa.me/5573991525694',
+      });
+    }
+
+    // Mapeia todos os links WhatsApp da página
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener('click', () => {
+        // Identifica qual botão pelo texto ou id
+        let label = 'unknown';
+        if (link.id === 'float-wa') {
+          label = WA_LABEL_MAP['float'];
+        } else if (link.closest('.header-cta')) {
+          label = WA_LABEL_MAP['header'];
+        } else {
+          const text = link.innerText.trim();
+          label = WA_LABEL_MAP[text] || text.toLowerCase().replace(/\s+/g, '_').substring(0, 40);
+        }
+        trackWAClick(label);
+      });
+    });
+
+    // ══════════════════════════════════════════════
+    // TRACKING — Scroll Depth (25%, 50%, 75%, 90%)
+    // ══════════════════════════════════════════════
+    const scrollMilestones = [25, 50, 75, 90];
+    const firedMilestones  = new Set();
+
+    window.addEventListener('scroll', () => {
+      const scrolled = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
+      scrollMilestones.forEach(m => {
+        if (scrolled >= m && !firedMilestones.has(m)) {
+          firedMilestones.add(m);
+          if (typeof gtag === 'function') {
+            gtag('event', 'scroll_depth', {
+              event_category: 'engagement',
+              event_label: `${m}%`,
+              non_interaction: true,
+            });
+          }
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'scroll_depth', depth: `${m}%` });
+        }
+      });
+    }, { passive: true });
 
     // ── Gallery Carousel (mobile)
     const track = document.getElementById('gallery-track');
