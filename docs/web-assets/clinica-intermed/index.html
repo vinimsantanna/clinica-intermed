@@ -743,6 +743,8 @@
     @media (min-width: 768px) {
       .sec-procedimentos { padding: var(--section-pad-desktop); }
       .proc-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .proc-grid--3 { grid-template-columns: repeat(3, 1fr); }
+      .proc-grid--3 .proc-card--wide { grid-column: span 1; }
       .proc-card { font-size: 15px; }
     }
 
@@ -1407,7 +1409,7 @@
 
       <div class="proc-category fade-up delay-3">
         <span class="proc-label">Cuidados & Recuperação</span>
-        <div class="proc-grid">
+        <div class="proc-grid proc-grid--3">
           <div class="proc-card">Ozonioterapia Pré e Pós-Cirúrgica</div>
           <div class="proc-card">Fisioterapia Perioperatória</div>
           <div class="proc-card proc-card--wide">Drenagem Linfática Estética</div>
